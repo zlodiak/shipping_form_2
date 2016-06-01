@@ -1,0 +1,45 @@
+/*
+INFO: 
+	project: shipping form
+	browsers: opera/chrome/FF/ie9/safari
+	width: 
+	columns:
+	markup: Sergey Kalinin 06/2016 (prozaik81-2@yandex.ru)
+	use: jq, bootstrap, underscore, backbone, backbone-validation
+	desc: 	
+	version 1
+*/	
+
+/****************************************************************************** COMMON_STYLES */
+.shipp_calc .hide{
+	display: none !important;
+}
+
+.shipp_calc .show{
+	display: block !important;
+}
+
+.shipp_calc .not_valid{
+	border: 1px solid red;
+}
+
+.shipp_calc .valid{
+	border: 1px solid #ccc;
+}
+
+.places_labels_box{
+	padding-bottom: 20px;
+
+	font-size: 12px;
+}
+
+
+/****************************************************************************** GLOBAL_layout */
+
+
+
+
+/****************************************************************************** GLOBAL_blocks: places_area */
+.places_area .row{
+	padding-bottom: 20px;
+}
