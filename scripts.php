@@ -2,13 +2,12 @@
 <script src="js/libs/bootstrap-3/js/bootstrap.min.js"></script> 
 <script src="js/libs/underscore-min.js"></script>
 <script src="js/libs/backbone-min.js"></script>
-<script src="js/libs/backbone-validation.min.js"></script>
+<script src="js/libs/Backbone.validateAll.min.js"></script>
 
 <script>
   window.APP = window.APP || {};
 </script>
 
-<script src="js/project/misc.js"></script> 
 <script src="js/project/models/models.js"></script> 
 <script src="js/project/collections/collections.js"></script> 
 <script src="js/project/views/placeViews.js"></script> 

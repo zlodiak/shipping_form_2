@@ -36,3 +36,21 @@ APP.PlaceView = Backbone.View.extend({
 });
 
 
+
+APP.PlaceInputView = Backbone.View.extend({   
+
+  initialize: function() {  
+
+  },
+
+  className: 'place_input',
+
+  template: _.template($('#placeInputTpl').html()),
+
+  render: function () {  
+    this.$el.html(this.template());   
+    return this;
+  } 
+
+});
+
