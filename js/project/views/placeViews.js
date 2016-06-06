@@ -36,7 +36,8 @@ APP.PlaceView = Backbone.View.extend({
 
     var idPlace = this.model.get('idPlace'),
         fileInfo = document.getElementById('file_' + idPlace).files[0],
-        validationSuccess = true;
+        validationSuccess = true,
+        fileMark = '';
 
     console.log('file', fileInfo)
 
@@ -46,12 +47,24 @@ APP.PlaceView = Backbone.View.extend({
         sizeBytes: fileInfo.size
     });    
 
-    if(!this.model.isValid('name') || !this.model.isValid('type') || !this.model.isValid('sizeBytes')) {
+    if(this.invalidCondition()) {
+      fileMark = '';
       console.log('fff', this.model)
-    } else {
+    } else {      
+      fileMark = fileInfo.name;
       console.log('sss', this.model)
     };
 
+    this.$el.find('.file-mark-block').html(fileMark);
+
+  },
+
+  invalidCondition: function() { 
+    var result =  !this.model.isValid('name') || 
+                  !this.model.isValid('type') || 
+                  !this.model.isValid('sizeBytes');
+
+    return result;
   },
 
   delPlace: function() { 
