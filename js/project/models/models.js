@@ -23,7 +23,15 @@ APP.PlaceModel = Backbone.Model.extend({
               { oneOf: ['image/png', 'image/jpg', 'image/jpeg'], msg: 'Недопустимый формат файла' }
             ]                                  
                                                  
-  }       
+  },
+
+  getValidCondition: function() { 
+    var invalid =   !this.isValid('name') || 
+                    !this.isValid('type') || 
+                    !this.isValid('sizeBytes');
+
+    return invalid ? false : true;
+  },         
 
 });
 

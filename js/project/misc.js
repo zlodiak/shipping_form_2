@@ -8,7 +8,7 @@ _.extend(Backbone.Validation.callbacks, {
         $group.removeClass('has-error');
         $group.find('.help-block').html('').addClass('hidden');
     },
-    invalid: function (view, attr, error, selector) {   console.log(view, attr, error, selector)
+    invalid: function (view, attr, error, selector) {   
         var $el = view.$('[name=file]'), 
             $group = $el.closest('.form-group');
         
@@ -28,29 +28,3 @@ $.fn.serializeObject = function () {
     return $.each(this.serializeArray(), b), a
 };
 
-
-/*APP.helper = {
-  isEmptyCheck: function(value) { 
-    if($.trim(value).length == 0) { 
-      return true;  // is empty
-    };
-  },
-
-  isMinusNumCheck: function(value) { 
-    if(parseInt($.trim(value), 10) < 0) { 
-      return true;  // is negative number
-    };
-  },
-
-  isZeroCheck: function(value) { 
-    if(parseInt($.trim(value), 10) == 0) { 
-      return true;  // is zero
-    };
-  },
-
-  isNumCheck: function(value) { 
-    if(isNaN(parseInt($.trim(value), 10)) == false) { 
-      return true;  // is number
-    };
-  }   
-}*/

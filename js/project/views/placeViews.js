@@ -32,14 +32,10 @@ APP.PlaceView = Backbone.View.extend({
   },
 
   changeFileField: function() { 
-    console.log('ch ff')
-
     var idPlace = this.model.get('idPlace'),
         fileInfo = document.getElementById('file_' + idPlace).files[0],
         validationSuccess = true,
         fileMark = '';
-
-    console.log('file', fileInfo)
 
     this.model.set({
         name: fileInfo.name,
@@ -47,24 +43,14 @@ APP.PlaceView = Backbone.View.extend({
         sizeBytes: fileInfo.size
     });    
 
-    if(this.invalidCondition()) {
+    if(this.model.getValidCondition() == false) {
       fileMark = '';
-      console.log('fff', this.model)
     } else {      
       fileMark = fileInfo.name;
-      console.log('sss', this.model)
     };
 
     this.$el.find('.file-mark-block').html(fileMark);
 
-  },
-
-  invalidCondition: function() { 
-    var result =  !this.model.isValid('name') || 
-                  !this.model.isValid('type') || 
-                  !this.model.isValid('sizeBytes');
-
-    return result;
   },
 
   delPlace: function() { 

@@ -19,6 +19,8 @@
       </div>
     </div>        
   </form>
+
+  <div id="modalsBox"></div>  
 </script>
 
 
@@ -45,12 +47,12 @@
           <fieldset>         
             <div class="modal-header">
               <btn type="btn" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></btn>
-              <h4 class="modal-title" id="paymentLabel">Стоимость пересылки</h4>
+              <h4 class="modal-title" id="paymentLabel">Внимание</h4>
             </div>
 
             <div class="modal-body" id="paymentPriceCont">
-              <span class="price"></span>
-              <span class="currency">руб</span>
+              <span class="filesCnt"><%= filesCnt %></span>
+              <span class="filesLabel"> файлов готовы к отправке</span>
             </div>
 
             <div class="modal-footer">
