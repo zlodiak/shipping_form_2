@@ -2,51 +2,26 @@ APP.PlaceModel = Backbone.Model.extend({
 
   defaults: {
     idPlace: undefined,
-    length: undefined,
-    width: undefined,
-    height: undefined,
-    volume: undefined,
-    weight: undefined,
-    overCargo: undefined,
-    hardBox: undefined         
+    sizeBytes: undefined,      
+    name: undefined,      
+    type: undefined 
   }, 
 
   validation: {
 
-    length: [ 
-              { required: true, msg: 'Поле не может быть пустым' },
-              { pattern: 'number', msg: 'Введите число' },
-              { pattern: /^[0-9]\d*(\.\d+)?$/, msg: 'Введите положительное число' },
-              { pattern: /^[1-9]\d*(\.\d+)?$/, msg: 'Число не может быть нулём' }
-            ],     
+    sizeBytes:  [ 
+                  { required: true, msg: 'Поле не может быть пустым' },
+                  { range: [1, 8000], msg: 'Файл слишком большой' }
+                ],     
 
-    width:  [ 
+    name:   [ 
               { required: true, msg: 'Поле не может быть пустым' },
-              { pattern: 'number', msg: 'Введите число' },
-              { pattern: /^[0-9]\d*(\.\d+)?$/, msg: 'Введите положительное число' },
-              { pattern: /^[1-9]\d*(\.\d+)?$/, msg: 'Число не может быть нулём' }
+              { maxLength: 18, msg: 'Название слишком длинное' }
             ],    
 
-    height: [ 
-              { required: true, msg: 'Поле не может быть пустым' },
-              { pattern: 'number', msg: 'Введите число' },
-              { pattern: /^[0-9]\d*(\.\d+)?$/, msg: 'Введите положительное число' },
-              { pattern: /^[1-9]\d*(\.\d+)?$/, msg: 'Число не может быть нулём' }
-            ],    
-
-    volume: [ 
-              { required: true, msg: 'Поле не может быть пустым' },
-              { pattern: 'number', msg: 'Введите число' },
-              { pattern: /^[0-9]\d*(\.\d+)?$/, msg: 'Введите положительное число' },
-              { pattern: /^[1-9]\d*(\.\d+)?$/, msg: 'Число не может быть нулём' }
-            ],    
-
-    weight: [ 
-              { required: true, msg: 'Поле не может быть пустым' },
-              { pattern: 'number', msg: 'Введите число' },
-              { pattern: /^[0-9]\d*(\.\d+)?$/, msg: 'Введите положительное число' },
-              { pattern: /^[1-9]\d*(\.\d+)?$/, msg: 'Число не может быть нулём' }
-            ]                                    
+    type:   [ 
+              { oneOf: ['image/png', 'image/jpg', 'image/jpeg'], msg: 'Недопустимый формат файла' }
+            ]                                  
                                                  
   }       
 

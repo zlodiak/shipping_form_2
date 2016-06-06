@@ -25,7 +25,18 @@ APP.PlaceView = Backbone.View.extend({
   }, 
 
   events:{
-    'click .delete_place_btn' : 'delPlace'
+    'click .delete_place_btn' : 'delPlace',
+    'change input[type="file"]' : 'changeFileField'
+  },
+
+  changeFileField: function() { 
+    console.log('ch ff')
+
+    var idPlace = this.model.get('idPlace'),
+        file = document.getElementById('file_' + idPlace).files[0];
+
+
+    console.log('file', file)
   },
 
   delPlace: function() { 
@@ -37,20 +48,4 @@ APP.PlaceView = Backbone.View.extend({
 
 
 
-APP.PlaceInputView = Backbone.View.extend({   
-
-  initialize: function() {  
-
-  },
-
-  className: 'place_input',
-
-  template: _.template($('#placeInputTpl').html()),
-
-  render: function () {  
-    this.$el.html(this.template());   
-    return this;
-  } 
-
-});
 

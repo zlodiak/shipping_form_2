@@ -1,8 +1,7 @@
 APP.CalcView = Backbone.View.extend({  
 
   initialize: function() {    
-    APP.placesCollection = new APP.PlacesCollection();  
-    this.place = new APP.PlaceView(false);     
+    APP.placesCollection = new APP.PlacesCollection();      
 
     new APP.PaymentModalView();
 
@@ -13,7 +12,6 @@ APP.CalcView = Backbone.View.extend({
 
   render: function () {  
     this.$el.html(this.template());    
-    this._addPlaceEl();
 
     return this;
   },
