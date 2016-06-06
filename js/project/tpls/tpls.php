@@ -24,7 +24,10 @@
 
 <script type="text/template" id="placeTpl">
   <div class="row">
-    <div class="col-xs-4 form-group"><input type="file" class="form-control" name="file" id="file_<%= idPlace %>"></div>
+    <div class="col-xs-4 form-group">
+      <input type="file" class="form-control" name="file" id="file_<%= idPlace %>">
+      <div class="help-block"></div>
+    </div>
     <div class="col-xs-8 del_place_box hide">
       <div class="btn btn-danger btn-xs pull-right delete_place_btn">Удалить файл</div>
     </div>

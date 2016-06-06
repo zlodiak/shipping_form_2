@@ -46,7 +46,7 @@ APP.PlaceView = Backbone.View.extend({
         sizeBytes: fileInfo.size
     });    
 
-    if(!this.model.isValid('type')) {
+    if(!this.model.isValid('name') || !this.model.isValid('type') || !this.model.isValid('sizeBytes')) {
       console.log('fff', this.model)
     } else {
       console.log('sss', this.model)
