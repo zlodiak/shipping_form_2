@@ -7,6 +7,8 @@ APP.PlaceView = Backbone.View.extend({
     APP.placesCollection.add(this.model);
 
     this.addPlaceBtn = addPlaceBtn ? false : true;
+
+    Backbone.Validation.bind(this);
   },
 
   className: 'place_unit',
@@ -33,10 +35,23 @@ APP.PlaceView = Backbone.View.extend({
     console.log('ch ff')
 
     var idPlace = this.model.get('idPlace'),
-        file = document.getElementById('file_' + idPlace).files[0];
+        fileInfo = document.getElementById('file_' + idPlace).files[0],
+        validationSuccess = true;
 
+    console.log('file', fileInfo)
 
-    console.log('file', file)
+    this.model.set({
+        name: fileInfo.name,
+        type: fileInfo.type,
+        sizeBytes: fileInfo.size
+    });    
+
+    if(!this.model.isValid('type')) {
+      console.log('fff', this.model)
+    } else {
+      console.log('sss', this.model)
+    };
+
   },
 
   delPlace: function() { 
